@@ -11,6 +11,7 @@ const routes = [
     path: "/filme/:id",
     name: "filme",
     component: () => import("../views/Filme.vue"),
+    props: true,
   },
   {
     path: "/salvos",
