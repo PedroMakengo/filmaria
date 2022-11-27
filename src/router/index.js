@@ -8,12 +8,7 @@ const routes = [
     component: HomeView,
   },
   {
-    path: "/erro",
-    name: "error",
-    component: () => import("../views/Erro.vue"),
-  },
-  {
-    path: "/filme",
+    path: "/filme/:id",
     name: "filme",
     component: () => import("../views/Filme.vue"),
   },
