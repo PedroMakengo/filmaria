@@ -1,8 +1,6 @@
 <template>
   <div id="home">
-    <div v-if="loading">
-      <h2>Loading...</h2>
-    </div>
+    <Loading v-if="loading" />
     <div v-else class="lista-filmes">
       <article class="file" v-for="(filme, index) in filmes" :key="index">
         <strong>{{ filme.nome }}</strong>
@@ -14,12 +12,20 @@
 </template>
 
 <script>
+import Loading from "@/components/Loading.vue";
 import api from "../service/api.js";
 export default {
   name: "HomeView",
-  data() {
-    return { filmes: [], loading: true };
+  components: {
+    Loading,
   },
+  data() {
+    return {
+      filmes: [],
+      loading: true,
+    };
+  },
+
   async created() {
     const response = await api.get("?api=filmes");
     this.filmes = await response.data;
