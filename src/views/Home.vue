@@ -1,6 +1,9 @@
 <template>
   <div id="home">
-    <div class="lista-filmes">
+    <div v-if="loading">
+      <h2>Loading...</h2>
+    </div>
+    <div v-else class="lista-filmes">
       <article class="file" v-for="(filme, index) in filmes" :key="index">
         <strong>{{ filme.nome }}</strong>
         <img :src="filme.foto" :alt="filme.nome" />
@@ -15,11 +18,12 @@ import api from "../service/api.js";
 export default {
   name: "HomeView",
   data() {
-    return { filmes: [] };
+    return { filmes: [], loading: true };
   },
   async created() {
     const response = await api.get("?api=filmes");
     this.filmes = await response.data;
+    this.loading = false;
   },
 };
 </script>
@@ -53,6 +57,7 @@ export default {
         text-decoration: none;
         color: #fff;
         font-size: 20px;
+        font-weight: 300;
         background-color: brown;
         width: 100%;
         height: 40px;
