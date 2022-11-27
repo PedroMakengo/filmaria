@@ -18,7 +18,7 @@ const routes = [
     component: () => import("../views/Filme.vue"),
   },
   {
-    path: "/meus-filmes",
+    path: "/salvos",
     name: "meusfilmes",
     component: () => import("../views/MeusFilmes.vue"),
   },

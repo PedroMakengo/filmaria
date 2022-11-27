@@ -1,6 +1,8 @@
 <template>
   <Header />
-  <router-view />
+  <div class="container">
+    <router-view />
+  </div>
 </template>
 
 <script>
@@ -10,4 +12,8 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.container {
+  margin-block: 2rem;
+}
+</style>

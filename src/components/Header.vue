@@ -1,12 +1,12 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <header id="header">
-    <h2>Filmaria</h2>
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/filme">Filme</router-link> |
-      <router-link to="/meus-filmes">Meus Filmes</router-link>
-    </nav>
+    <div class="container">
+      <router-link to="/" class="logo" exact>Filmaria</router-link>
+      <nav>
+        <router-link to="/salvos" exact>Salvos <sup>(0)</sup></router-link>
+      </nav>
+    </div>
   </header>
 </template>
 
@@ -14,4 +14,25 @@
 export default {};
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+#header {
+  background: brown;
+  height: 13vh;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    a {
+      color: white;
+      text-decoration: none;
+
+      &.logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+    }
+  }
+}
+</style>
